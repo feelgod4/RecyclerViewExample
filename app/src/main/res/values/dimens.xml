@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_item_height">48dp</dimen>
+    <dimen name="default_item_width">48dp</dimen>
+    <dimen name="default_text_size">18sp</dimen>
+    <dimen name="high_text_size">48sp</dimen>
+</resources>

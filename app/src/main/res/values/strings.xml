@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RecyclerView example</string>
+    <string name="btn_add_number">Add number</string>
+    <string name="number_detail_value">number</string>
+    <string name="number_detail_color">color</string>
+    <string name="number">3</string>
+</resources>
