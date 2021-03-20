@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import ru.technopark.hometask1.R
 import ru.technopark.hometask1.view.numbers.ListNumbersFragment
 import ru.technopark.hometask1.common.ListNumbersSingleton
+import ru.technopark.hometask1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var viewBinding: ActivityMainBinding
 
     companion object {
         private const val SIZE_LIST_SINGLETON = "size"
@@ -14,13 +17,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        viewBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(viewBinding.root)
 
         if (savedInstanceState == null)
             supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.container, ListNumbersFragment.newInstance())
-                .commit()
+                    .beginTransaction()
+                    .replace(R.id.container, ListNumbersFragment.newInstance())
+                    .commit()
         else
             ListNumbersSingleton.restoreState(savedInstanceState.getInt(SIZE_LIST_SINGLETON))
     }
