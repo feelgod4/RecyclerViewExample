@@ -11,10 +11,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var viewBinding: ActivityMainBinding
 
-    companion object {
-        private const val SIZE_LIST_SINGLETON = "size"
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -34,5 +30,9 @@ class MainActivity : AppCompatActivity() {
         super.onSaveInstanceState(outState)
         if (!isChangingConfigurations)
             outState.putInt(SIZE_LIST_SINGLETON, ListNumbersSingleton.data.size)
+    }
+
+    companion object {
+        private const val SIZE_LIST_SINGLETON = "size"
     }
 }

@@ -1,6 +1,5 @@
 package ru.technopark.hometask1.view.numbers
 
-import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,12 +17,6 @@ import ru.technopark.hometask1.view.numberdetail.NumberDetailFragment
 class ListNumbersFragment : Fragment(), NumberItemInteractions {
 
     private lateinit var viewBinding: FragmentListNumbersBinding
-
-    companion object {
-        fun newInstance(): ListNumbersFragment {
-            return ListNumbersFragment()
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -55,5 +48,11 @@ class ListNumbersFragment : Fragment(), NumberItemInteractions {
             ?.replace(R.id.container, NumberDetailFragment.newInstance(number))
             ?.addToBackStack(null)
             ?.commit()
+    }
+
+    companion object {
+        fun newInstance(): ListNumbersFragment {
+            return ListNumbersFragment()
+        }
     }
 }

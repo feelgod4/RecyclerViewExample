@@ -12,23 +12,6 @@ class NumberDetailFragment : Fragment() {
 
     private lateinit var viewBinding: FragmentOneNumberBinding
 
-    companion object {
-        private const val VALUE_ARG_NAME = "value"
-        private const val COLOR_ARG_NAME = "color"
-
-        fun newInstance(value: Number): NumberDetailFragment {
-            val fragment =
-                NumberDetailFragment()
-
-            val args = Bundle()
-            args.putString(VALUE_ARG_NAME, value.toString())
-            args.putInt(COLOR_ARG_NAME, value.color)
-            fragment.arguments = args
-
-            return fragment
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -43,6 +26,23 @@ class NumberDetailFragment : Fragment() {
         arguments?.let {
             viewBinding.numberText.text = it.getString(VALUE_ARG_NAME)
             viewBinding.numberText.setTextColor(it.getInt(COLOR_ARG_NAME))
+        }
+    }
+
+    companion object {
+        private const val VALUE_ARG_NAME = "value"
+        private const val COLOR_ARG_NAME = "color"
+
+        fun newInstance(value: Number): NumberDetailFragment {
+            val fragment =
+                NumberDetailFragment()
+
+            val args = Bundle()
+            args.putString(VALUE_ARG_NAME, value.toString())
+            args.putInt(COLOR_ARG_NAME, value.color)
+            fragment.arguments = args
+
+            return fragment
         }
     }
 }
