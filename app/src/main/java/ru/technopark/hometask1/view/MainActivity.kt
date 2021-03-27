@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         if (!isChangingConfigurations)
-            outState.putInt(SIZE_LIST_SINGLETON, ListNumbersSingleton.data.size)
+            outState.putInt(SIZE_LIST_SINGLETON, ListNumbersSingleton.getSize())
     }
 
     companion object {

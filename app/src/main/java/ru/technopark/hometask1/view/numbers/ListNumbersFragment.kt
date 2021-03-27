@@ -9,10 +9,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import ru.technopark.hometask1.R
 import ru.technopark.hometask1.common.ListNumbersSingleton
 import ru.technopark.hometask1.databinding.FragmentListNumbersBinding
-import ru.technopark.hometask1.model.Number
 import ru.technopark.hometask1.common.NumberItemInteractions
 import ru.technopark.hometask1.view.numberdetail.NumberDetailFragment
-
 
 class ListNumbersFragment : Fragment(), NumberItemInteractions {
 
@@ -34,16 +32,16 @@ class ListNumbersFragment : Fragment(), NumberItemInteractions {
         recyclerView.layoutManager =
             GridLayoutManager(context, resources.getInteger(R.integer.columns_count))
 
-        val recycleViewAdapter = ListNumbersAdapter(this, ListNumbersSingleton.data)
+        val recycleViewAdapter = ListNumbersAdapter(this, ListNumbersSingleton.takeData())
         recyclerView.adapter = recycleViewAdapter
 
         viewBinding.btnGenerate.setOnClickListener {
-            ListNumbersSingleton.addNumber(recycleViewAdapter.itemCount)
-            recycleViewAdapter.notifyItemInserted(ListNumbersSingleton.data.size - 1)
+            ListNumbersSingleton.addNumber(ListNumbersSingleton.getSize() + 1)
+            recycleViewAdapter.notifyItemInserted(ListNumbersSingleton.getSize() + 1)
         }
     }
 
-    override fun navigateToNumberDetail(number: Number) {
+    override fun navigateToNumberDetail(number: Int) {
         fragmentManager?.beginTransaction()
             ?.replace(R.id.container, NumberDetailFragment.newInstance(number))
             ?.addToBackStack(null)

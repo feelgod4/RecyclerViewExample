@@ -1,24 +1,27 @@
 package ru.technopark.hometask1.common
 
-import ru.technopark.hometask1.model.Number
-
 object ListNumbersSingleton {
-    private val mData: MutableList<Number>
-    val data: List<Number>
-        get() = mData
+    private const val startSize = 100
+    private val mData: MutableList<Int>
+
+    fun takeData(): List<Int> = mData
+
+    fun getSize(): Int {
+        return mData.size
+    }
 
     fun addNumber(i: Int) {
-        mData.add(Number(i))
+        mData.add(i)
     }
 
     fun restoreState(size: Int) {
-        for (i in 101..size)
-            mData.add(Number(i))
+        for (i in (startSize + 1)..size)
+            mData.add(i)
     }
 
     init {
         mData = ArrayList()
-        for (i in 1..100)
-            mData.add(Number(i))
+        for (i in 1..startSize)
+            mData.add(i)
     }
 }
